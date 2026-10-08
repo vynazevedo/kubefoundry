@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-.PHONY: tools up image deploy gitops database test verify check down security
+.PHONY: tools up image deploy gitops database test verify check down security docs-check
 
 tools:
 	bash scripts/tools.sh
@@ -24,3 +24,6 @@ down:
 
 security:
 	bash scripts/security.sh
+
+docs-check:
+	python3 scripts/check-docs.py

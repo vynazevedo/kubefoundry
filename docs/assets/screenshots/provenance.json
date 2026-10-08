@@ -1,0 +1,8 @@
+{
+  "ci-validado.png": {
+    "source": "https://github.com/vynazevedo/kubefoundry/actions/runs/37784398679",
+    "captured_on": "2026-10-08",
+    "method": "Unedited full-page screenshot using Chromium via Playwright, unauthenticated public page",
+    "sha256": "cb141d7d5eb88dfda1be7e8268c544fa8ae17f46f5474c071738eac81d37bdb1"
+  }
+}

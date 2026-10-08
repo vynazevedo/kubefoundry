@@ -3,6 +3,7 @@
 <p align="center">A hands-on Kubernetes platform engineering lab with GitOps and executable security checks.</p>
 
 <p align="center">
+  <a href="docs/README.md">Documentação em português</a> ·
   <a href="#quickstart">Quickstart</a> ·
   <a href="#learning-path">Learning path</a> ·
   <a href="#security-boundaries">Security</a> ·
@@ -25,6 +26,10 @@ A reproducible Kubernetes platform engineering lab. Build a restricted workload,
 </table>
 
 Also powered by **Go**, **kind**, **Trivy**, **govulncheck** and **GitHub Actions**. Logos identify the technologies used; they do not imply endorsement. [Artwork provenance](assets/technologies/sources.json).
+
+## Documentação em português
+
+Começando do zero ou buscando aprofundamento? A [trilha de estudos](docs/README.md) explica os conceitos, orienta os laboratórios e mostra como interpretar os resultados. Inclui arquitetura, Helm, GitOps, operators, segurança, operação e diagnóstico, com diagramas e [evidências reais](docs/assets/README.md).
 
 ## Architecture
 
