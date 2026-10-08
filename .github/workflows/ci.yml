@@ -31,6 +31,9 @@ jobs:
         run: make security
       - name: Admission, RBAC and network controls
         run: make verify
+      - name: GitOps reconciliation and database operator
+        if: github.event_name != 'pull_request'
+        run: make gitops database
       - name: Diagnostics on failure
         if: failure()
         env:

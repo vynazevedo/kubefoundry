@@ -1,9 +1,32 @@
-# kubefoundry
+<h1 align="center">KubeFoundry</h1>
+<p align="center"><strong>Build it. Break it. Prove it recovers.</strong></p>
+<p align="center">A hands-on Kubernetes platform engineering lab with GitOps and executable security checks.</p>
+
+<p align="center">
+  <a href="#quickstart">Quickstart</a> ·
+  <a href="#learning-path">Learning path</a> ·
+  <a href="#security-boundaries">Security</a> ·
+  <a href="#platform-engineering-direction">Roadmap</a>
+</p>
 
 [![CI](https://github.com/vynazevedo/kubefoundry/actions/workflows/ci.yml/badge.svg)](https://github.com/vynazevedo/kubefoundry/actions/workflows/ci.yml)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A reproducible Kubernetes platform engineering lab. Build a restricted workload, deploy it with Helm and Argo CD, and prove that admission and network controls reject unsafe behavior. Runs locally on kind with a dedicated kubeconfig.
+
+<table>
+  <tr>
+    <td align="center"><a href="https://kubernetes.io/"><img src="assets/technologies/kubernetes.svg" width="64" height="64" alt="Kubernetes logo"></a><br><strong>Kubernetes</strong><br>Orchestration</td>
+    <td align="center"><a href="https://helm.sh/"><img src="assets/technologies/helm.svg" width="64" height="64" alt="Helm logo"></a><br><strong>Helm</strong><br>Packaging</td>
+    <td align="center"><a href="https://argo-cd.readthedocs.io/"><img src="assets/technologies/argo.svg" width="64" height="64" alt="Argo logo"></a><br><strong>Argo CD</strong><br>GitOps</td>
+    <td align="center"><a href="https://cilium.io/"><img src="assets/technologies/cilium.svg" width="64" height="64" alt="Cilium logo"></a><br><strong>Cilium</strong><br>Networking</td>
+    <td align="center"><a href="https://cloudnative-pg.io/"><img src="assets/technologies/cloudnativepg.svg" width="64" height="64" alt="CloudNativePG logo"></a><br><strong>CloudNativePG</strong><br>Database operator</td>
+  </tr>
+</table>
+
+Also powered by **Go**, **kind**, **Trivy**, **govulncheck** and **GitHub Actions**. Logos identify the technologies used; they do not imply endorsement. [Artwork provenance](assets/technologies/sources.json).
+
+## Architecture
 
 ```mermaid
 flowchart LR
@@ -16,6 +39,17 @@ flowchart LR
     Cilium[Cilium NetworkPolicy] --> Demo
     Operator[CloudNativePG operator] --> DB[(Optional PostgreSQL lab)]
 ```
+
+## What you can prove
+
+| Control | Positive control | Negative control |
+| --- | --- | --- |
+| Admission | Restricted pod is accepted | Privileged pods, writable roots and token mounts are rejected |
+| Network | Authorized client reaches the service IP | Unauthorized client times out against the same IP |
+| RBAC | Observer can read pod logs | Reading secrets and creating deployments are denied |
+| Supply chain | Scanned local image and CycloneDX inventory | HIGH/CRITICAL findings fail the security check |
+
+The admission, network and RBAC checks execute against a real kind cluster. A failed image pull or unscheduled test pod is treated as a test failure, never as evidence of isolation.
 
 ## Features
 
@@ -116,6 +150,25 @@ Native admission policies complement Pod Security and avoid adding another contr
 The design takes inspiration from the public discussion of [Kubernetes in Mercado Libre's Fury platform](https://medium.com/mercadolibre-tech/kubernetes-at-mercado-libre-ec331bea1866), particularly standardized developer workflows and the separation of application and platform responsibilities. This project is independent and does not reproduce or claim Mercado Libre's internal architecture or scale.
 
 Next milestones are multi-team onboarding with automated isolation tests, Gateway API with TLS, OpenTelemetry pipelines and SLOs, verified image promotion, external secret integration, progressive delivery and database recovery drills. Each needs runnable scenarios and acceptance tests before being listed as a delivered feature.
+
+## Repository map
+
+```text
+apps/demo/          Minimal Go workload and unit tests
+charts/demo/        Helm chart, schema and network policy
+bootstrap/          Local cluster and Argo CD configuration
+gitops/             AppProject, Application and ApplicationSet example
+platform/           Admission, tenant budgets, Cilium and PostgreSQL
+scripts/            Reproducible setup, deployment and security checks
+tests/              Live admission, network and RBAC assertions
+assets/             Upstream technology logos and provenance
+```
+
+## Contributing
+
+Useful contributions include reproducible failure scenarios, stronger negative controls and tested platform integrations. Include the commands you ran, expected behavior and observed results in your pull request. Keep examples runnable on the local profile and describe any extra infrastructure requirements.
+
+For improvements or questions, open an [issue](https://github.com/vynazevedo/kubefoundry/issues) or a [discussion](https://github.com/vynazevedo/kubefoundry/discussions). Please report sensitive vulnerabilities through [GitHub private reporting](https://github.com/vynazevedo/kubefoundry/security/advisories/new), without posting credentials or exploit details in public issues.
 
 ## Cleanup
 
