@@ -40,7 +40,7 @@ Depois de habilitar GitOps, use mudanças no Git. O self-heal pode desfazer alte
 
 O chart aceita digest de imagem, mas o quickstart usa uma imagem local com tag. Não confunda essa conveniência de laboratório com verificação de procedência de imagens.
 
-Referência — [estrutura de charts Helm](https://helm.sh/docs/topics/charts/).
+Referência. [estrutura de charts Helm](https://helm.sh/docs/topics/charts/).
 
 
 [Voltar ao índice](../README.md)

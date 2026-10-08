@@ -33,7 +33,7 @@ A aplicação demo não utiliza o banco. As credenciais são geradas como Secret
 
 Não aumente réplicas e conclua que o sistema ficou resiliente sem testar falhas e recuperação. Backup externo, restauração para um instante específico e medição de perda de dados são exercícios futuros. `make down` destrói o ambiente e seus dados; só execute com dados descartáveis.
 
-Referência — [documentação do CloudNativePG](https://cloudnative-pg.io/documentation/).
+Referência. [documentação do CloudNativePG](https://cloudnative-pg.io/documentation/).
 
 
 [Voltar ao índice](../README.md)

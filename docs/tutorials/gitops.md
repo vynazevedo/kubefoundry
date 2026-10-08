@@ -40,7 +40,7 @@ O exemplo em `gitops/applicationsets/demo.yaml` gera Applications a partir de um
 
 Mais entradas na lista não bastam para operar vários clusters. É necessário cadastrá-los, fornecer credenciais e autorizar seus destinos no AppProject. Esta etapa não é automatizada pela base atual.
 
-Referência — [bootstrap do Argo CD](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/).
+Referência. [bootstrap do Argo CD](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/).
 
 
 [Voltar ao índice](../README.md)

@@ -36,7 +36,7 @@ O SBOM fica em `.state/demo.cdx.json` e descreve componentes detectados. Gerar S
 
 Não versionamos kubeconfigs, chaves ou tokens. Kubernetes Secrets usam codificação base64 para representação e não são, por isso, criptografados. Proteção em repouso e um provedor externo não estão configurados neste laboratório.
 
-Referências — [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) e [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
+Referências. [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) e [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
 
 
 [Voltar ao índice](../README.md)

@@ -42,7 +42,7 @@ Namespace não cria isolamento de rede automaticamente. Uma NetworkPolicy precis
 
 A reconciliação é contínua e pode levar algum tempo. Uma API aceitar um manifest não prova que a aplicação ficou pronta. Por isso verificamos rollout, condições de saúde e comportamento dos clientes.
 
-Referências oficiais — [conceitos do Kubernetes](https://kubernetes.io/docs/concepts/) e [padrão Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/).
+Referências oficiais. [conceitos do Kubernetes](https://kubernetes.io/docs/concepts/) e [padrão Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/).
 
 
 [Voltar ao índice](../README.md)
