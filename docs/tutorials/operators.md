@@ -31,7 +31,7 @@ Uma instância não oferece alta disponibilidade. O provisionamento local do kin
 
 A aplicação demo não utiliza o banco. As credenciais são geradas como Secrets no cluster. Não imprima ou compartilhe seu conteúdo durante o exercício.
 
-Não aumente réplicas e conclua que o sistema ficou resiliente sem testar falhas e recuperação. Backup externo, restauração para um instante específico e medição de perda de dados são exercícios futuros. `make down` destrói o ambiente e seus dados; só execute com dados descartáveis.
+Não aumente réplicas e conclua que o sistema ficou resiliente sem testar falhas e recuperação. O [perfil de recuperação](recuperacao.md) mede uma restauração lógica independente e demonstra a perda de escritas posteriores ao backup. Backup externo e restauração para um instante específico não são configurados por esse perfil. `make down` destrói o ambiente e seus dados; só execute com dados descartáveis.
 
 Referência. [documentação do CloudNativePG](https://cloudnative-pg.io/documentation/).
 

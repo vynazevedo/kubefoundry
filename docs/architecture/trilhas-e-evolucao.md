@@ -2,21 +2,17 @@
 
 O objetivo é servir quem está começando e quem já opera sistemas. Não chamamos uma capacidade de entregue apenas porque ela aparece em um diagrama.
 
-| Nível | Disponível agora | Próximo aprofundamento |
+| Nível | Disponível agora | Laboratório |
 | --- | --- | --- |
-| Entrada | Preparação, terminal, containers, YAML, Pod e Deployment | Mais exercícios de configuração e armazenamento |
-| Fundamentos | Service, seletores, readiness, falhas e recuperação | ConfigMaps, Secrets, PVC, StatefulSet e limites sob carga |
-| Plataforma | Helm, Argo CD, Cilium, admissão, RBAC e operator de banco | Multi-time, identidade externa e promoção de ambientes |
-| Operação | Verificações automatizadas e diagnóstico básico | Autoscaling, observabilidade, alertas e SLOs |
-| Resiliência | Reconciliação de Pods e recuperação de configurações | Backup restaurado, RPO/RTO, falhas de nós e zonas |
+| Entrada | Preparação, terminal, containers, YAML, Pod e Deployment | [Trilha inicial](../getting-started/do-zero.md) |
+| Fundamentos | Service, readiness, ConfigMap, Secret e StatefulSet com PVC | [Configuração e storage](../tutorials/configuracao-storage.md) |
+| Plataforma | GitOps, isolamento de times, Gateway API e controller próprio | [Perfis completos](../tutorials/plataforma-completa.md) |
+| Operação | Métricas, logs, traces, alerta e HPA sob carga | [Observabilidade](../tutorials/observabilidade.md) |
+| Resiliência | Backup lógico restaurado e canary com rollback | [Recuperação](../tutorials/recuperacao.md) |
 
-## Critérios para as próximas entregas
+## Limites que permanecem explícitos
 
-- **Configuração e armazenamento**. Demonstrar alteração de configuração, comportamento após reinício e persistência conforme o tipo de volume. Secrets devem usar apenas dados fictícios.
-- **Observabilidade**. Gerar tráfego e uma falha conhecida; encontrar evidência em métricas, logs e traces. Não basta instalar dashboards.
-- **Autoscaling**. Medir carga, crescimento de réplicas e retorno ao patamar inicial, respeitando orçamento de recursos.
-- **Múltiplos times**. Provar acesso permitido no próprio escopo e bloqueio no escopo de outro time, incluindo API e rede.
-- **Recuperação de dados**. Restaurar um backup em ambiente separado e validar registros. Medir tempo e perda de dados.
+Os perfis cobrem a trilha prática local. Não reproduzem infraestrutura de produção multi-região, SSO corporativo, PITR, backend durável de telemetria ou admissão de imagens assinadas. A documentação explica onde cada experimento termina para evitar transportar atalhos de laboratório para produção.
 
 ## Relação com referências do mercado
 

@@ -1,188 +1,197 @@
 <h1 align="center">KubeFoundry</h1>
-<p align="center"><strong>Build it. Break it. Prove it recovers.</strong></p>
-<p align="center">A hands-on Kubernetes platform engineering lab with GitOps and executable security checks.</p>
+<p align="center"><strong>Construa. Provoque uma falha. Comprove a recuperação.</strong></p>
+<p align="center">Aprenda Kubernetes e engenharia de plataforma com laboratórios reproduzíveis, segurança e testes executáveis.</p>
 
 <p align="center">
-  <a href="docs/README.md">Documentação em português</a> ·
-  <a href="#quickstart">Quickstart</a> ·
-  <a href="#learning-path">Learning path</a> ·
-  <a href="#security-boundaries">Security</a> ·
-  <a href="#platform-engineering-direction">Roadmap</a>
+  <a href="docs/getting-started/do-zero.md">Comece do zero</a> ·
+  <a href="docs/README.md">Documentação</a> ·
+  <a href="docs/tutorials/plataforma-completa.md">Trilhas avançadas</a> ·
+  <a href="docs/assets/README.md">Evidências reais</a>
 </p>
 
 [![CI](https://github.com/vynazevedo/kubefoundry/actions/workflows/ci.yml/badge.svg)](https://github.com/vynazevedo/kubefoundry/actions/workflows/ci.yml)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A reproducible Kubernetes platform engineering lab. Build a restricted workload, deploy it with Helm and Argo CD, and prove that admission and network controls reject unsafe behavior. Runs locally on kind with a dedicated kubeconfig.
+Do primeiro Pod à investigação de uma falha usando métricas, logs e traces. O KubeFoundry conecta fundamentos, Helm, GitOps, isolamento de times, operators e operação em um cluster local descartável. Cada laboratório explica o conceito, mostra como executar e define uma evidência para saber se funcionou.
 
 <table>
   <tr>
-    <td align="center"><a href="https://kubernetes.io/"><img src="assets/technologies/kubernetes.svg" width="64" height="64" alt="Kubernetes logo"></a><br><strong>Kubernetes</strong><br>Orchestration</td>
-    <td align="center"><a href="https://helm.sh/"><img src="assets/technologies/helm.svg" width="64" height="64" alt="Helm logo"></a><br><strong>Helm</strong><br>Packaging</td>
-    <td align="center"><a href="https://argo-cd.readthedocs.io/"><img src="assets/technologies/argo.svg" width="64" height="64" alt="Argo logo"></a><br><strong>Argo CD</strong><br>GitOps</td>
-    <td align="center"><a href="https://cilium.io/"><img src="assets/technologies/cilium.svg" width="64" height="64" alt="Cilium logo"></a><br><strong>Cilium</strong><br>Networking</td>
-    <td align="center"><a href="https://cloudnative-pg.io/"><img src="assets/technologies/cloudnativepg.svg" width="64" height="64" alt="CloudNativePG logo"></a><br><strong>CloudNativePG</strong><br>Database operator</td>
+    <td align="center"><a href="https://kubernetes.io/"><img src="assets/technologies/kubernetes.svg" width="64" height="64" alt="Kubernetes"></a><br><strong>Kubernetes</strong><br>Orquestração</td>
+    <td align="center"><a href="https://helm.sh/"><img src="assets/technologies/helm.svg" width="64" height="64" alt="Helm"></a><br><strong>Helm</strong><br>Pacotes</td>
+    <td align="center"><a href="https://argo-cd.readthedocs.io/"><img src="assets/technologies/argo.svg" width="64" height="64" alt="Argo"></a><br><strong>Argo CD</strong><br>GitOps</td>
+    <td align="center"><a href="https://cilium.io/"><img src="assets/technologies/cilium.svg" width="64" height="64" alt="Cilium"></a><br><strong>Cilium</strong><br>Rede</td>
+    <td align="center"><a href="https://cloudnative-pg.io/"><img src="assets/technologies/cloudnativepg.svg" width="64" height="64" alt="CloudNativePG"></a><br><strong>CloudNativePG</strong><br>Operator PostgreSQL</td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://opentelemetry.io/"><img src="assets/technologies/opentelemetry.svg" width="64" height="64" alt="OpenTelemetry"></a><br><strong>OpenTelemetry</strong><br>Instrumentação</td>
+    <td align="center"><a href="https://prometheus.io/"><img src="assets/technologies/prometheus.svg" width="64" height="64" alt="Prometheus"></a><br><strong>Prometheus</strong><br>Métricas e alertas</td>
+    <td align="center"><a href="https://www.jaegertracing.io/"><img src="assets/technologies/jaeger.svg" width="64" height="64" alt="Jaeger"></a><br><strong>Jaeger</strong><br>Traces</td>
+    <td align="center"><a href="https://gateway.envoyproxy.io/"><img src="assets/technologies/envoy.svg" width="64" height="64" alt="Envoy Gateway"></a><br><strong>Envoy Gateway</strong><br>Gateway API</td>
+    <td align="center"><a href="https://cert-manager.io/"><img src="assets/technologies/cert-manager.svg" width="64" height="64" alt="cert-manager"></a><br><strong>cert-manager</strong><br>Certificados</td>
   </tr>
 </table>
 
-Also powered by **Go**, **kind**, **Trivy**, **govulncheck** and **GitHub Actions**. Logos identify the technologies used; they do not imply endorsement. [Artwork provenance](assets/technologies/sources.json).
+Também usamos **Go**, **kind**, **Metrics Server**, **External Secrets**, **Cosign**, **Trivy**, **govulncheck** e **GitHub Actions**. Os logotipos oficiais identificam as tecnologias utilizadas e não indicam endosso. Consulte a [origem dos arquivos](assets/technologies/sources.json).
 
-## Documentação em português
+## Escolha seu ponto de partida
 
-Começando do zero ou buscando aprofundamento? Comece pela [trilha do zero](docs/getting-started/do-zero.md), com exercícios de Pod, Deployment, Service e readiness. A [trilha de estudos](docs/README.md) explica os conceitos, orienta os laboratórios e mostra como interpretar os resultados. Inclui arquitetura, Helm, GitOps, operators, segurança, operação e diagnóstico, com diagramas e [evidências reais](docs/assets/README.md).
+| Seu momento | Por onde começar | O que você vai praticar |
+| --- | --- | --- |
+| Nunca usei Kubernetes | [Trilha do zero](docs/getting-started/do-zero.md) | Pod, Deployment, Service, probes e diagnóstico |
+| Já conheço os recursos | [Índice de estudos](docs/README.md) | Helm, GitOps, rede, RBAC e admissão |
+| Quero operar uma plataforma | [Trilhas avançadas](docs/tutorials/plataforma-completa.md) | Observabilidade, escala, TLS, canary, recuperação e controllers |
+| Quero avaliar as decisões | [Arquitetura e evolução](docs/architecture/trilhas-e-evolucao.md) | Cobertura, referências públicas e limites de cada perfil |
 
-## Architecture
+A documentação está em português, com exemplos para iniciantes e detalhes técnicos para quem quer aprofundar. Leia o resultado esperado antes de executar e use os testes para investigar por que uma mudança funcionou ou falhou.
+
+## Arquitetura
 
 ```mermaid
 flowchart LR
-    Dev[Developer] --> Git[Git repository]
-    Git --> CI[Tests and security checks]
-    Git --> Argo[Argo CD]
-    Argo --> Project[Restricted AppProject]
-    Project --> Demo[Demo workload]
-    Policy[Pod Security and admission policies] --> Demo
-    Cilium[Cilium NetworkPolicy] --> Demo
-    Operator[CloudNativePG operator] --> DB[(Optional PostgreSQL lab)]
+    Git[Repositório Git] --> CI[Testes e scanners]
+    Git --> Argo[Argo CD + AppProject]
+    Argo --> Demo[Demo com Helm]
+    Cilium[Cilium + políticas de rede] --> Demo
+    Cilium --> App[Workbench]
+    Client[Cliente local HTTPS] --> Gateway[Envoy Gateway + cert-manager]
+    Gateway --> App
+    App --> Collector[OpenTelemetry Collector]
+    Collector --> Jaeger[Jaeger]
+    App --> Prom[Prometheus + alertas]
+    Metrics[Metrics Server] --> HPA[HPA]
+    HPA --> App
+    CNPG[CloudNativePG] --> DB[(PostgreSQL + restauração)]
+    Controller[StudyApp operator] --> Managed[Deployment reconciliado]
 ```
 
-## What you can prove
+Os perfis são exercícios complementares. O banco não é dependência da aplicação demo; o operator próprio gerencia uma aplicação separada; o canary usa revisões de configuração do Workbench. Isso permite estudar cada comportamento sem esconder suas dependências.
 
-| Control | Positive control | Negative control |
-| --- | --- | --- |
-| Admission | Restricted pod is accepted | Privileged pods, writable roots and token mounts are rejected |
-| Network | Authorized client reaches the service IP | Unauthorized client times out against the same IP |
-| RBAC | Observer can read pod logs | Reading secrets and creating deployments are denied |
-| Supply chain | Scanned local image and CycloneDX inventory | HIGH/CRITICAL findings fail the security check |
+## Execute o laboratório básico
 
-The admission, network and RBAC checks execute against a real kind cluster. A failed image pull or unscheduled test pod is treated as a test failure, never as evidence of isolation.
-
-## Features
-
-- Two-node local cluster with Cilium and no public service exposure
-- Non-root, read-only workload, dropped capabilities, seccomp and no mounted service account token
-- Native validating admission policies with fail-closed enforcement in labeled workload namespaces
-- Resource quotas, container defaults and a read-only developer role without access to secrets
-- Helm chart with schema validation, probes, resource budgets and a disruption budget
-- Argo CD with a namespace-scoped AppProject, automated reconciliation and shared-resource protection
-- Positive and negative tests for admission and network isolation
-- Optional PostgreSQL operator lab and an ApplicationSet example for fleet-oriented studies
-- Pinned tool and chart versions, checksum-verified tool downloads, CI actions pinned by commit
-
-## Quickstart
-
-Requires Linux, macOS or WSL2, Docker, kubectl, Go with toolchain downloads enabled, Python 3, curl, tar and make. Plan for roughly 4 CPUs and 8 GiB available to Docker for the base lab; add capacity for Argo CD and PostgreSQL. These are starting estimates, not measured minimums.
+Requer Linux, macOS ou WSL2, Docker, kubectl, Go com download de toolchains habilitado, Python 3, curl, tar e make. Reserve inicialmente 4 CPUs e 8 GiB disponíveis ao Docker para o perfil básico. Para todos os perfis, planeje 6 CPUs e 12 GiB. São estimativas de planejamento, não mínimos medidos.
 
 ```bash
 git clone https://github.com/vynazevedo/kubefoundry.git
 cd kubefoundry
 make tools
-make check
+make check docs-check
 make up
 make image deploy
-make security
-make verify
+make fundamentals-test
+make security verify
 ```
 
-The tools are installed under `.bin/`. The cluster is named `kubefoundry`; its kubeconfig is `.state/kubeconfig`. Scripts use that explicit context and do not deploy into your default cluster. `make up` refuses to adopt an existing cluster with the same name.
+As ferramentas ficam em `.bin/`. O cluster se chama `kubefoundry`, com kubeconfig dedicado em `.state/kubeconfig`. Os scripts usam explicitamente o contexto `kind-kubefoundry`. `make up` recusa adotar um cluster existente com esse nome.
 
-Access the demo through a loopback-only port forward.
+Para acessar a aplicação
 
 ```bash
 export KUBECONFIG="$PWD/.state/kubeconfig"
 kubectl --context kind-kubefoundry -n playground port-forward service/demo 8080:8080 --address 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8080`. Port forwarding is an administrative access path and is not evidence that NetworkPolicy permits pod-to-pod access. `make verify` tests that separately.
+Abra `http://127.0.0.1:8080`. Port-forward é um acesso administrativo e não comprova a permissão entre Pods. `make verify` testa o tráfego entre clientes autorizados e não autorizados contra o mesmo endereço de serviço.
 
-## GitOps
+## Helm, GitOps e banco
 
 ```bash
 make gitops
-```
-
-This installs Argo CD and points its demo Application at this repository. The local image must already have been built and loaded with `make image`. Argo CD renders the same Helm chart used by `make deploy`; after enabling GitOps, change desired state in Git rather than running manual deployment commands. Fork users must update `repoURL` and the AppProject source allowlist.
-
-The UI remains a ClusterIP service. To inspect it locally, forward port 443 to localhost. Argo CD initially uses its generated certificate and bootstrap admin credential; configure OIDC, remove the bootstrap admin and review RBAC before any shared deployment. This lab does not expose the UI publicly or preconfigure an identity provider.
-
-`gitops/applicationsets/demo.yaml` is an alternative exercise, not installed by the quickstart. It shows list-driven Application generation. To switch, delete the original Application **without cascading workload deletion** before installing the ApplicationSet. Do not use both to manage the same objects. Additional destinations require explicit AppProject changes.
-
-## Operator lab
-
-```bash
 make database
 ```
 
-Installs CloudNativePG and a single-instance study database using local storage. The operator generates application credentials as Kubernetes Secrets; they are not committed to Git. The database namespace limits inbound access to the operator and same-namespace workloads. It is not connected to the demo application.
+O Argo CD reconcilia o chart da demo usando um AppProject restrito. A imagem local precisa ter sido carregada por `make image`. Depois de habilitar GitOps, altere o estado desejado no Git. Em um fork, ajuste `repoURL` e a lista de fontes do AppProject. A [trilha GitOps](docs/README.md) explica a operação e o exemplo alternativo de ApplicationSet, que não deve gerenciar os mesmos objetos junto com a Application original.
 
-This exercise covers an existing operator and its custom resource. It is not highly available and has no configured external backup. Deleting the kind cluster destroys its storage. Backup recovery, a custom operator and production storage are later milestones, not delivered guarantees.
+CloudNativePG instala um banco de estudo com armazenamento local. As credenciais são geradas como Secrets, sem versionamento. O [laboratório de recuperação](docs/tutorials/recuperacao.md) cria outros dois bancos temporários para testar backup lógico e restauração sem alterar os dados do banco de estudo.
 
-## Learning path
+## Execute os perfis avançados
 
-| Exercise | Action | Evidence |
-| --- | --- | --- |
-| Workload lifecycle | Build and deploy the demo | Probes and rollout become ready |
-| Helm | Change replicas or resource values | Rendered manifests and schema validation |
-| Admission | Run the negative fixtures | Privileged pods, writable roots and token mounts are rejected |
-| Network isolation | Run labeled and unlabeled clients | Only the authorized client reaches the same service IP |
-| Least privilege | Check the observer account | Logs are readable; secrets and writes are denied |
-| GitOps | Change a tracked value through a PR | Argo CD reconciles the workload |
-| Operators | Install the database profile | CloudNativePG reconciles a ready Cluster resource |
+Com o cluster pronto
 
-## Versions
-
-The executable version inventory is [versions.env](versions.env). Kubernetes 1.36.4 is selected from the kind release images because Cilium 1.20.2 lists Kubernetes 1.36 in its tested compatibility matrix. Using a newer Kubernetes minor before the networking stack validates it is not the update policy for this lab.
-
-| Component | Pin |
-| --- | --- |
-| kind | 0.33.0 |
-| Kubernetes | 1.36.4, node image pinned by SHA-256 |
-| Helm | 4.3.0 |
-| Cilium | 1.20.2 |
-| Argo CD Helm chart | 10.10.0 |
-| CloudNativePG Helm chart | 0.29.1 |
-| Go | 1.27.1 |
-
-## Security boundaries
-
-The demo image is a locally built static Go binary in `scratch`. The chart supports digest references, but the local workflow loads a version-tagged image into kind. `make security` runs govulncheck and Trivy, rejects HIGH/CRITICAL image vulnerabilities and detected secrets, and writes a CycloneDX SBOM to `.state/demo.cdx.json`. Image signature verification and SBOM admission enforcement are not implemented yet.
-
-The AppProject restricts application destinations and resource kinds. Argo CD itself and infrastructure operators retain powerful cluster permissions. Repository writers, cluster administrators and the local Docker owner are trusted. Namespace isolation is not a boundary against a malicious cluster administrator.
-
-Native admission policies complement Pod Security and avoid adding another controller for the initial rules. They apply only to namespaces carrying the workload label. Infrastructure namespaces require separate controls. No credentials, kubeconfigs or generated knowledge files belong in Git.
-
-## Platform engineering direction
-
-The design takes inspiration from the public discussion of [Kubernetes in Mercado Libre's Fury platform](https://medium.com/mercadolibre-tech/kubernetes-at-mercado-libre-ec331bea1866), particularly standardized developer workflows and the separation of application and platform responsibilities. This project is independent and does not reproduce or claim Mercado Libre's internal architecture or scale.
-
-Next milestones are multi-team onboarding with automated isolation tests, Gateway API with TLS, OpenTelemetry pipelines and SLOs, verified image promotion, external secret integration, progressive delivery and database recovery drills. Each needs runnable scenarios and acceptance tests before being listed as a delivered feature.
-
-## Repository map
-
-```text
-apps/demo/          Minimal Go workload and unit tests
-charts/demo/        Helm chart, schema and network policy
-bootstrap/          Local cluster and Argo CD configuration
-gitops/             AppProject, Application and ApplicationSet example
-platform/           Admission, tenant budgets, Cilium and PostgreSQL
-scripts/            Reproducible setup, deployment and security checks
-tests/              Live admission, network and RBAC assertions
-assets/             Upstream technology logos and provenance
+```bash
+make advanced-test
 ```
 
-## Contributing
+Esse comando constrói as aplicações e executa todos os cenários abaixo, sequencialmente. Não use `make -j`, pois alguns perfis alteram a mesma aplicação. Também é possível executar [cada etapa separadamente](docs/tutorials/plataforma-completa.md).
 
-Useful contributions include reproducible failure scenarios, stronger negative controls and tested platform integrations. Include the commands you ran, expected behavior and observed results in your pull request. Keep examples runnable on the local profile and describe any extra infrastructure requirements.
+| Cenário | O teste exige | Tutorial |
+| --- | --- | --- |
+| ConfigMap e Secret | Arquivo atualiza, ambiente muda após reinício e segredo não aparece na saída | [Configuração](docs/tutorials/configuracao-storage.md) |
+| StatefulSet e PVC | Conteúdo sobrevive à substituição do Pod | [Armazenamento](docs/tutorials/configuracao-storage.md) |
+| Isolamento entre times | Tráfego próprio passa; tráfego e permissões cruzadas são negados | [Múltiplos times](docs/security/multiplos-times.md) |
+| OpenTelemetry e Prometheus | Uma falha aparece em métrica, alerta, log e trace consultado pelo ID exato | [Observabilidade](docs/tutorials/observabilidade.md) |
+| HPA | Réplicas aumentam sob carga e voltam a uma após a carga | [Autoscaling](docs/tutorials/autoscaling.md) |
+| Backup e recuperação | Outro banco restaura apenas os registros existentes no backup | [Recuperação](docs/tutorials/recuperacao.md) |
+| Gateway API e TLS | HTTPS valida CA e hostname; certificado sem confiança é rejeitado | [Gateway](docs/tutorials/gateway-canary.md) |
+| Canary e rollback | Duas revisões recebem tráfego e rollback retorna à estável | [Canary](docs/tutorials/gateway-canary.md) |
+| External Secrets | Duas revisões fictícias são sincronizadas sem imprimir os valores | [Secrets](docs/security/secrets-assinaturas.md) |
+| Cosign | Artefato original verifica e uma cópia alterada é rejeitada | [Assinaturas](docs/security/secrets-assinaturas.md) |
+| Operator próprio | Reconciliação, nova geração, recriação e coleta de dependentes | [StudyApp](docs/tutorials/operator-proprio.md) |
 
-For improvements or questions, open an [issue](https://github.com/vynazevedo/kubefoundry/issues) or a [discussion](https://github.com/vynazevedo/kubefoundry/discussions). Please report sensitive vulnerabilities through [GitHub private reporting](https://github.com/vynazevedo/kubefoundry/security/advisories/new), without posting credentials or exploit details in public issues.
+## Veja uma falha de verdade
 
-## Cleanup
+O endpoint de laboratório `/fail` produz um HTTP 503 controlado. O teste confere o contador, espera o alerta, encontra o ID no log e consulta o mesmo trace no Jaeger.
+
+![Trace real de uma requisição HTTP 503 controlada no Jaeger](docs/assets/screenshots/jaeger-local.png)
+
+![Alerta real disparado no Prometheus durante o laboratório](docs/assets/screenshots/prometheus-alerts.png)
+
+As capturas são do cluster local. [Contexto e proveniência](docs/assets/README.md). Os dados da observabilidade são efêmeros e não devem ser usados para retenção de produção.
+
+## Segurança verificável
+
+- Workloads sem root, filesystem somente leitura, capabilities removidas, seccomp e recursos limitados.
+- Pod Security e políticas nativas de admissão, com testes que rejeitam configurações inseguras nos namespaces protegidos.
+- NetworkPolicy, RBAC e quotas, com controles positivos e negativos. Erro de imagem ou Pod não agendado não conta como isolamento comprovado.
+- Testes Go com detector de corrida, `go vet`, govulncheck, Trivy e SBOM CycloneDX. Achados HIGH/CRITICAL e segredos detectados nas imagens reprovam a verificação.
+- Ferramentas com versões fixadas e checksums, além de ações de CI referenciadas por commit.
+
+Os perfis usam imagens locais carregadas no kind. O exercício Cosign verifica um **artefato binário offline**, sem enforcement de assinaturas na admissão de imagens. External Secrets usa um backend Kubernetes local e valores fictícios. O Metrics Server usa uma exceção de TLS de kubelet necessária para este perfil kind, explicada no tutorial.
+
+Argo CD e os operators de infraestrutura têm permissões administrativas. Administradores do cluster, escritores do repositório e o proprietário do Docker são confiáveis. Isolamento de namespace não protege contra um administrador malicioso. A UI do Argo CD permanece interna; revise OIDC, admin inicial e RBAC antes de qualquer ambiente compartilhado.
+
+## Versões e manutenção
+
+[versions.env](versions.env) registra as versões das ferramentas, charts e componentes. Os módulos Go têm arquivos `go.mod` e `go.sum`. Os manifests fixam as imagens correspondentes e o CI verifica sua consistência com o inventário.
+
+Kubernetes 1.36.4 foi selecionado entre as imagens do kind porque consta na matriz de compatibilidade testada pelo Cilium 1.20.2. Atualizar significa validar o conjunto, não apenas escolher a maior versão isolada. Consulte o [guia de manutenção](docs/operations/manutencao.md).
+
+## Relação com práticas do mercado
+
+Os exercícios trabalham conceitos presentes em plataformas modernas, como reconciliação, padronização, isolamento, observabilidade e recuperação. A [comparação com referências públicas](docs/architecture/trilhas-e-evolucao.md) explica o alinhamento com conteúdos da LinuxTips e práticas divulgadas por Mercado Livre e iFood, sem alegar certificação ou equivalência às plataformas internas dessas empresas.
+
+Este é um ambiente de estudos testável. Alta disponibilidade, disaster recovery de nuvem, SLOs de negócio, promoção automática com análise de métricas e políticas de assinatura no admission controller exigem infraestrutura e decisões adicionais. Cada tutorial delimita o que seu teste comprova.
+
+## Estrutura
+
+```text
+apps/demo/          Aplicação básica e testes
+apps/workbench/     Aplicação instrumentada para os cenários avançados
+operators/studyapp/ Controller próprio com CRD e reconciliação
+charts/demo/        Helm, schema e políticas de rede
+bootstrap/          Cluster local e configuração do Argo CD
+gitops/             AppProject, Application e exemplo de ApplicationSet
+platform/           Admissão, quotas, Cilium e PostgreSQL
+labs/               Fundamentos e manifests dos perfis avançados
+scripts/            Instalação e cenários executáveis
+tests/              Validação estática e controles no cluster
+docs/               Trilhas em português, diagramas e capturas reais
+assets/             Logotipos oficiais com origem registrada
+```
+
+## Contribua
+
+Contribuições úteis incluem cenários reproduzíveis, explicações mais claras e novos controles negativos. No pull request, descreva os comandos executados, o resultado esperado e o observado. Mantenha os exemplos executáveis no perfil local e informe requisitos adicionais.
+
+Use [issues](https://github.com/vynazevedo/kubefoundry/issues) ou [discussions](https://github.com/vynazevedo/kubefoundry/discussions) para dúvidas e melhorias. Vulnerabilidades sensíveis podem ser enviadas pelo [canal privado do GitHub](https://github.com/vynazevedo/kubefoundry/security/advisories/new).
+
+## Limpeza
 
 ```bash
 make down
 ```
 
-Deletes only the kind cluster named `kubefoundry`, including database data. Local source files remain.
+Remove o cluster `kubefoundry` e seus dados, incluindo os bancos. Dumps sintéticos e relatórios locais permanecem em `.state/`, ignorada pelo Git. Os fontes permanecem no diretório do projeto.
 
-## License
+## Licença
 
-[MIT](LICENSE)
+[MIT](LICENSE). Os logotipos seguem as condições de seus respectivos titulares.

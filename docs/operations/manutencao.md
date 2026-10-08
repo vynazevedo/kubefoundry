@@ -33,7 +33,7 @@ Com GitOps, reverta no Git a mudança problemática, revise o resultado renderiz
 
 ## Próximas capacidades
 
-A evolução proposta inclui isolamento entre times, Gateway API e TLS, telemetria e SLOs, assinatura de imagens, secrets externos, entregas graduais e restauração de dados. Cada capacidade deve chegar com um cenário reproduzível, controles positivos e negativos e documentação dos limites.
+Os [perfis avançados](../tutorials/plataforma-completa.md) exercitam isolamento, Gateway API e TLS, telemetria, assinaturas de artefatos, rotação de secrets, entrega gradual e restauração lógica. SLOs de produção, admissão de imagens assinadas e recuperação multi-região exigem decisões que não estão automatizadas neste laboratório.
 
 
 [Voltar ao índice](../README.md)

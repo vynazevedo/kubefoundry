@@ -6,6 +6,11 @@
     "helm.svg": "https://github.com/cncf/artwork/blob/002662490acb2303c7301acc0256c00790e03e9f/projects/helm/icon/color/helm-icon-color.svg",
     "argo.svg": "https://github.com/cncf/artwork/blob/002662490acb2303c7301acc0256c00790e03e9f/projects/argo/icon/color/argo-icon-color.svg",
     "cilium.svg": "https://github.com/cncf/artwork/blob/002662490acb2303c7301acc0256c00790e03e9f/projects/cilium/icon/color/cilium_icon-color.svg",
-    "cloudnativepg.svg": "https://github.com/cncf/artwork/blob/002662490acb2303c7301acc0256c00790e03e9f/projects/cloudnativepg/icon/color/cloudnativepg-icon-color.svg"
+    "cloudnativepg.svg": "https://github.com/cncf/artwork/blob/002662490acb2303c7301acc0256c00790e03e9f/projects/cloudnativepg/icon/color/cloudnativepg-icon-color.svg",
+    "cert-manager.svg": "https://github.com/cncf/artwork/blob/002662490acb2303c7301acc0256c00790e03e9f/projects/cert-manager/icon/color/cert-manager-icon-color.svg",
+    "envoy.svg": "https://github.com/cncf/artwork/blob/002662490acb2303c7301acc0256c00790e03e9f/projects/envoy/icon/color/envoy-icon-color.svg",
+    "jaeger.svg": "https://github.com/cncf/artwork/blob/002662490acb2303c7301acc0256c00790e03e9f/projects/jaeger/icon/color/jaeger-icon-color.svg",
+    "opentelemetry.svg": "https://github.com/cncf/artwork/blob/002662490acb2303c7301acc0256c00790e03e9f/projects/opentelemetry/icon/color/opentelemetry-icon-color.svg",
+    "prometheus.svg": "https://github.com/cncf/artwork/blob/002662490acb2303c7301acc0256c00790e03e9f/projects/prometheus/icon/color/prometheus-icon-color.svg"
   }
 }

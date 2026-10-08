@@ -1,0 +1,19 @@
+{
+  "spec": {
+    "template": {
+      "spec": {
+        "containers": [
+          {
+            "name": "workbench",
+            "env": [
+              {
+                "name": "OTEL_EXPORTER_OTLP_ENDPOINT",
+                "value": "http://collector.kf-observability.svc:4318"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

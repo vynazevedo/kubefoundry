@@ -28,6 +28,6 @@ Não precisamos subir toda a plataforma para executar os fundamentos. `make up` 
 
 Use os desafios como revisão e examine [tests/fundamentals.py](../../tests/fundamentals.py). Os testes verificam UIDs, endpoints prontos, resposta HTTP e recuperação. Não tratam apenas a aceitação de YAML como sucesso.
 
-Essa trilha cobre uma primeira etapa de fundamentos. ConfigMaps, Secrets, volumes, autoscaling, telemetria e recuperação de dados terão laboratórios próprios. A [matriz de evolução](../architecture/trilhas-e-evolucao.md) distingue o que já é executável do que ainda está planejado.
+Essa trilha cobre uma primeira etapa de fundamentos. ConfigMaps, Secrets, volumes, autoscaling, telemetria e recuperação de dados têm [perfis próprios](../tutorials/plataforma-completa.md). A [matriz de evolução](../architecture/trilhas-e-evolucao.md) distingue o que já é executável do que ainda está planejado.
 
 [Voltar ao índice](../README.md)

@@ -6,3 +6,5 @@
 *.pem
 *.key
 coverage.out
+__pycache__/
+*.pyc

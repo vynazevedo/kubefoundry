@@ -8,3 +8,11 @@ updates:
     directory: /apps/demo
     schedule:
       interval: weekly
+  - package-ecosystem: gomod
+    directory: /apps/workbench
+    schedule:
+      interval: weekly
+  - package-ecosystem: gomod
+    directory: /operators/studyapp
+    schedule:
+      interval: weekly

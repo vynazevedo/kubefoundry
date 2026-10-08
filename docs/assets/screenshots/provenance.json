@@ -4,5 +4,17 @@
     "captured_on": "2026-10-08",
     "method": "Unedited full-page screenshot using Chromium via Playwright, unauthenticated public page",
     "sha256": "cb141d7d5eb88dfda1be7e8268c544fa8ae17f46f5474c071738eac81d37bdb1"
+  },
+  "jaeger-local.png": {
+    "source": "Local kind-kubefoundry cluster, kf-observability namespace",
+    "captured_on": "2026-10-08",
+    "method": "Unedited full-page Chromium screenshot of real running service",
+    "sha256": "5e044308dfafed63b740dc66b863a23c8a8422bc476cff1abc7870af42fd3807"
+  },
+  "prometheus-alerts.png": {
+    "source": "Local kind-kubefoundry cluster, kf-observability namespace",
+    "captured_on": "2026-10-08",
+    "method": "Unedited full-page Chromium screenshot of real running service",
+    "sha256": "90622b1d41105f447d83ef976fb2729ecd1fc51139c1e46f0283563a32aadd35"
   }
 }

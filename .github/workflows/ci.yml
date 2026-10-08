@@ -53,3 +53,27 @@ jobs:
       - name: Delete test cluster
         if: always()
         run: make down
+
+  advanced:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: apps/workbench/go.mod
+          cache: false
+      - name: Install tools and create disposable cluster
+        run: make tools up
+      - name: Run configuration, storage, telemetry, scaling, recovery and platform labs
+        run: make advanced-test
+      - name: Diagnostics
+        if: failure()
+        env:
+          KUBECONFIG: ${{ github.workspace }}/.state/kubeconfig
+        run: |
+          kubectl get pods -A -o wide || true
+          kubectl get events -A --sort-by=.lastTimestamp || true
+      - name: Delete disposable cluster
+        if: always()
+        run: make down
