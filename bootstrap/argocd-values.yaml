@@ -1,0 +1,13 @@
+crds:
+  install: true
+configs:
+  cm:
+    exec.enabled: "false"
+  rbac:
+    policy.default: ""
+server:
+  service:
+    type: ClusterIP
+  extraArgs: []
+redis:
+  enabled: true

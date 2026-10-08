@@ -1,0 +1,43 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        with:
+          go-version-file: apps/demo/go.mod
+          cache: false
+      - name: Install verified tools
+        run: make tools
+      - name: Unit tests, race detector, chart and shell checks
+        run: make check
+      - name: Create isolated cluster
+        run: make up
+      - name: Build and deploy workload
+        run: make image deploy
+      - name: Vulnerability scan and SBOM
+        run: make security
+      - name: Admission, RBAC and network controls
+        run: make verify
+      - name: Diagnostics on failure
+        if: failure()
+        env:
+          KUBECONFIG: ${{ github.workspace }}/.state/kubeconfig
+        run: |
+          kubectl get pods -A -o wide || true
+          kubectl get events -A --sort-by=.lastTimestamp || true
+      - name: Delete test cluster
+        if: always()
+        run: make down

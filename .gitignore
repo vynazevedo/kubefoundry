@@ -1,0 +1,8 @@
+.local/
+.bin/
+.state/
+*.kubeconfig
+.env
+*.pem
+*.key
+coverage.out

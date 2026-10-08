@@ -1,0 +1,7 @@
+apiVersion: v2
+name: demo
+description: Restricted Kubernetes learning workload
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+kubeVersion: ">=1.34.0-0"

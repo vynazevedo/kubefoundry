@@ -1,0 +1,11 @@
+ipam:
+  mode: kubernetes
+kubeProxyReplacement: false
+operator:
+  replicas: 1
+hubble:
+  enabled: true
+  relay:
+    enabled: false
+  ui:
+    enabled: false
