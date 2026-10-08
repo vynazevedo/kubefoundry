@@ -41,6 +41,15 @@ def endpoints():
                          'kubernetes.io/service-name=primeiro-service', '-o', 'json').stdout)['items']
     return [ep for s in slices for ep in (s.get('endpoints') or []) if ep.get('conditions', {}).get('ready') is True]
 
+def http_matches(ip, expected):
+    result = k('-n', NAMESPACE, 'exec', 'primeiro-pod', '--', '/demo', 'probe',
+               f'http://{ip}:8080/healthz', check=False)
+    if result.returncode:
+        # API, exec and missing-container errors must not count as traffic rejection.
+        assert any(message in result.stderr for message in
+                   ('connect: connection refused', 'timeout', 'deadline exceeded')) and 'Get "http://' in result.stderr, result.stderr
+    return (result.returncode == 0) == expected
+
 created = False
 try:
     apply('namespace.yaml')
@@ -66,17 +75,14 @@ try:
     apply('service.yaml')
     wait_for('service has two ready endpoints', lambda: len(endpoints()) == 2)
     ip = k('-n', NAMESPACE, 'get', 'service', 'primeiro-service', '-o', 'jsonpath={.spec.clusterIP}').stdout
-    k('-n', NAMESPACE, 'exec', 'primeiro-pod', '--', '/demo', 'probe', f'http://{ip}:8080/healthz')
-    print('PASS in-cluster HTTP request succeeds', flush=True)
+    wait_for('in-cluster HTTP request succeeds', lambda: http_matches(ip, True))
     k('-n', NAMESPACE, 'patch', 'service', 'primeiro-service', '--type=merge', '-p', '{"spec":{"selector":{"app":"nao-existe"}}}')
     wait_for('wrong service selector removes ready endpoints', lambda: len(endpoints()) == 0)
-    failed = k('-n', NAMESPACE, 'exec', 'primeiro-pod', '--', '/demo', 'probe', f'http://{ip}:8080/healthz', check=False)
-    assert failed.returncode and ('connect: connection refused' in failed.stderr or 'timeout' in failed.stderr or 'deadline exceeded' in failed.stderr), failed.stderr
-    print('PASS service without endpoints rejects HTTP request', flush=True)
+    wait_for('service without endpoints rejects HTTP request', lambda: http_matches(ip, False))
     # Restore manifests and prove recovery rather than accepting the failure alone.
     apply('service.yaml')
     wait_for('restoring selector recovers ready endpoints', lambda: len(endpoints()) == 2)
-    k('-n', NAMESPACE, 'exec', 'primeiro-pod', '--', '/demo', 'probe', f'http://{ip}:8080/healthz')
+    wait_for('HTTP traffic recovers', lambda: http_matches(ip, True))
     patch = {'spec': {'strategy': {'type': 'Recreate', 'rollingUpdate': None}, 'template': {'spec': {'containers': [{'name': 'demo',
              'readinessProbe': {'httpGet': {'path': '/nao-existe'}}}]}}}}
     # Recreate replaces all replicas only in this temporary test namespace.
@@ -89,7 +95,7 @@ try:
     apply('deployment.yaml')
     k('-n', NAMESPACE, 'rollout', 'status', 'deployment/primeiro-deployment', '--timeout=100s')
     wait_for('restoring readiness recovers service endpoints', lambda: len(endpoints()) == 2)
-    k('-n', NAMESPACE, 'exec', 'primeiro-pod', '--', '/demo', 'probe', f'http://{ip}:8080/healthz')
+    wait_for('HTTP traffic recovers', lambda: http_matches(ip, True))
 finally:
     if created:
         k('delete', 'namespace', NAMESPACE, '--wait=false')

@@ -34,7 +34,7 @@ kubectl --context kind-kubefoundry -n fundamentos get pods --show-labels
 kubectl --context kind-kubefoundry -n fundamentos get endpointslices -l kubernetes.io/service-name=primeiro-service -o yaml
 ```
 
-Aguarde a reconciliação. O Service continuará existindo, mas não terá destinos prontos correspondentes ao seletor. Repetir o probe deve retornar erro. A forma do erro depende de como a rede trata um Service sem destinos; não exija uma mensagem única.
+Aguarde a reconciliação. A API pode mostrar a lista vazia antes de a rede terminar de atualizar suas regras. Uma requisição ainda pode passar nesse intervalo; observe a convergência com prazo limitado, em vez de presumir uma mudança instantânea. O Service continuará existindo, mas não terá destinos prontos correspondentes ao seletor. Repetir o probe deve retornar erro. A forma do erro depende de como a rede trata um Service sem destinos; não exija uma mensagem única.
 
 **Desafio**. Corrija a falha sem recriar Pods e explique qual comparação revelou a causa.
 
