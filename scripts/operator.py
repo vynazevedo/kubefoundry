@@ -24,7 +24,7 @@ for invalid_spec in (None, {'replicas':0}, {'replicas':4}):
     invalid={'apiVersion':example['apiVersion'],'kind':'StudyApp','metadata':{'name':'invalid-example','namespace':ns}}
     if invalid_spec is not None:invalid['spec']=invalid_spec
     result=lab.k('create','--dry-run=server','-f','-',obj=invalid,check=False)
-    assert result.returncode!=0 and 'spec' in result.stderr and 'Invalid' in result.stderr,result.stderr
+    assert result.returncode!=0 and 'spec' in result.stderr and 'is invalid: spec' in result.stderr,result.stderr
 print('PASS CRD rejects missing specification and out-of-range replicas',flush=True)
 lab.k('apply','-f','-',obj=example)
 def ready():
