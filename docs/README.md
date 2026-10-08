@@ -8,6 +8,8 @@ Você não precisa conhecer todas as ferramentas antes de começar. Siga a trilh
 
 | Quero… | Comece por… |
 | --- | --- |
+| Nunca usei Kubernetes | [Trilha do zero](getting-started/do-zero.md) |
+| Planejar meu aprofundamento | [Trilhas e evolução](architecture/trilhas-e-evolucao.md) |
 | Entender os nomes e as peças | [Conceitos essenciais](concepts/fundamentos.md) |
 | Executar meu primeiro cluster | [Primeiros passos](getting-started/primeiro-cluster.md) |
 | Entender as decisões técnicas | [Arquitetura e responsabilidades](architecture/plataforma.md) |

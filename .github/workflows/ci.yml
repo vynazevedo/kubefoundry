@@ -34,6 +34,8 @@ jobs:
         run: make up
       - name: Build and deploy workload
         run: make image deploy
+      - name: Foundation labs and recovery checks
+        run: make fundamentals-test
       - name: Vulnerability scan and SBOM
         run: make security
       - name: Admission, RBAC and network controls

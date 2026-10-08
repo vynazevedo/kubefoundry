@@ -29,7 +29,7 @@ Also powered by **Go**, **kind**, **Trivy**, **govulncheck** and **GitHub Action
 
 ## Documentação em português
 
-Começando do zero ou buscando aprofundamento? A [trilha de estudos](docs/README.md) explica os conceitos, orienta os laboratórios e mostra como interpretar os resultados. Inclui arquitetura, Helm, GitOps, operators, segurança, operação e diagnóstico, com diagramas e [evidências reais](docs/assets/README.md).
+Começando do zero ou buscando aprofundamento? Comece pela [trilha do zero](docs/getting-started/do-zero.md), com exercícios de Pod, Deployment, Service e readiness. A [trilha de estudos](docs/README.md) explica os conceitos, orienta os laboratórios e mostra como interpretar os resultados. Inclui arquitetura, Helm, GitOps, operators, segurança, operação e diagnóstico, com diagramas e [evidências reais](docs/assets/README.md).
 
 ## Architecture
 

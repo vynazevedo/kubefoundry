@@ -27,3 +27,7 @@ security:
 
 docs-check:
 	python3 scripts/check-docs.py
+
+.PHONY: fundamentals-test
+fundamentals-test:
+	bash scripts/fundamentals-test.sh
